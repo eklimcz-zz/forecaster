@@ -10,5 +10,6 @@
         "request": "2.37.0",        
         "underscore": "*"      ,
         "moment": "2.10.2"
-    }
+    },
+    "engine": "node 0.10.29"
 }
