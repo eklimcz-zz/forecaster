@@ -1,0 +1,14 @@
+{
+    "name": "node-shell",
+    "description": "Most Simple node setup",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "4.6.1",    
+        "body-parser": "~1.0.0",
+        "debug": "~0.7.4",
+        "request": "2.37.0",        
+        "underscore": "*"      ,
+        "moment": "2.10.2"
+    }
+}
