@@ -1,3 +1,4 @@
+/// <reference path="typings/node/node.d.ts"/>
 var http = require('http');
 var request = require('request');
 var express = require('express');
@@ -15,7 +16,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-var server = app.listen(3000, function() {
+var server = app.listen((process.env.PORT || 3000), function() {
     console.log('Listening on port %d', server.address().port);
 });
 
