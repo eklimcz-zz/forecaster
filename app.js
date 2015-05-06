@@ -6,7 +6,8 @@ var util = require('util');
 var _ = require("underscore");
 var fs = require('fs');
 var app = express();
-var moment = require('moment');
+//var moment = require('moment');
+var moment = require('moment-timezone');
 var url = 'https://api.forecast.io/forecast/e0c19772c4b3bfdf753d1cd0fd608282/41.9095,-87.6410';
 var forecast;
 
@@ -39,7 +40,7 @@ function checkWeather() {
 
         forecast = {
             precip: data.currently.summary,
-            time: moment().format("h:mmA"),
+            time: moment().tz('America/Chicago').format("h:mmA"),
             temp: data.currently.apparentTemperature,
             lowTemp: data.daily.data[0].temperatureMin,
             highTemp: data.daily.data[0].temperatureMax,
