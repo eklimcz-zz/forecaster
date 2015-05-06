@@ -38,11 +38,13 @@ function checkWeather() {
         data = JSON.parse(data);
 
         forecast = {
-            preceip: data.currently.summary,
-            time: moment().format("H:mmA"),
+            precip: data.currently.summary,
+            time: moment().format("h:mmA"),
             temp: data.currently.apparentTemperature,
-            low: Math.round(data.daily.data[0].temperatureMin),
-            high: Math.round(data.daily.data[0].temperatureMax)
+            lowTemp: data.daily.data[0].temperatureMin,
+            highTemp: data.daily.data[0].temperatureMax,
+            wind: data.currently.windSpeed,
+            empty:""
         }
 
         console.log('GOT FORECAST: ', forecast);
