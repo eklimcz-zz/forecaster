@@ -21,21 +21,10 @@ var server = app.listen((process.env.PORT || 3000), function() {
     console.log('Listening on port %d', server.address().port);
 });
 
+app.get('/forecast', function(req, res) {
 
-
-function init() {
-	
-	checkWeather();
-
-	setInterval(function () {
-		checkWeather();
-	}, 3600000)
-}
-
-function checkWeather() {
-    
     request(url, function(error, response, data) {
-        
+
         data = JSON.parse(data);
 
         forecast = {
@@ -45,18 +34,11 @@ function checkWeather() {
             lowTemp: data.daily.data[0].temperatureMin,
             highTemp: data.daily.data[0].temperatureMax,
             wind: data.currently.windSpeed,
-            empty:""
+            empty: ""
         }
 
+        res.json(forecast);
+
         console.log('GOT FORECAST: ', forecast);
-
     });
-}
-
-app.get('/forecast', function(req, res) {
-   
-    res.json(forecast);
-
 });
-
-init();
